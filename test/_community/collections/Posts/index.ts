@@ -17,6 +17,45 @@ export const PostsCollection: CollectionConfig = {
     {
       name: 'richText',
       type: 'richText',
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          BlocksFeature({
+            blocks: [
+              {
+                slug: 'testblock1',
+                fields: [
+                  {
+                    name: 'testfield',
+                    type: 'text',
+                  },
+                ],
+              },
+            ],
+            inlineBlocks: [
+              {
+                slug: 'myInlineBlock1',
+                fields: [
+                  {
+                    name: 'key',
+                    type: 'select',
+                    options: ['value1', 'value2', 'value3'],
+                  },
+                ],
+              },
+              {
+                slug: 'myInlineBlock2',
+                fields: [
+                  {
+                    name: 'textfor inline-blocks',
+                    type: 'text',
+                  },
+                ],
+              },
+            ],
+          }),
+        ],
+      }),
     },
     {
       name: 'richText2',
@@ -31,6 +70,27 @@ export const PostsCollection: CollectionConfig = {
                 fields: [
                   {
                     name: 'testfield',
+                    type: 'text',
+                  },
+                ],
+              },
+            ],
+            inlineBlocks: [
+              {
+                slug: 'myInlineBlock3',
+                fields: [
+                  {
+                    name: 'key',
+                    type: 'select',
+                    options: ['value1', 'value2', 'value3'],
+                  },
+                ],
+              },
+              {
+                slug: 'myInlineBlock4',
+                fields: [
+                  {
+                    name: 'text2',
                     type: 'text',
                   },
                 ],
